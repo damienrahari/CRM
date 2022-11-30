@@ -33,7 +33,7 @@ public class ClientController {
 //------------------------------------------------------------------------------------------
 
 	@GetMapping("client/{id}")
-	public ResponseEntity<Client> getClient(@PathVariable("id") int id) {
+	public ResponseEntity<Client> getClient(@PathVariable("id") Integer id) {
 		Optional<Client> optionalClient= clientDirectory.getClient(id);
 		if (optionalClient.isEmpty()) {
 			return ResponseEntity.notFound().build();
@@ -51,14 +51,14 @@ public class ClientController {
 //------------------------------------------------------------------------------------------
 
 	@DeleteMapping("client/{id}")
-	public void deleteClient(@PathVariable("id") int id) {
+	public void deleteClient(@PathVariable("id") Integer id) {
 		clientDirectory.deleteClient(id);
 	}
 //------------------------------------------------------------------------------------------
 
 	
 	@PatchMapping("client/{id}")
-	public void updateClient(@RequestBody Client client, @PathVariable("id") int id) {
+	public void updateClient(@RequestBody Client client, @PathVariable("id") Integer id) {
 		clientDirectory.updateClient(client, id);
 	}
 
